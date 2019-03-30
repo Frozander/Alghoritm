@@ -3,6 +3,8 @@
 #include <string.h>
 #include <time.h>
 
+#include "FrozHashFuncs.h"
+
 char *inputString;
 char *keyString;
 
@@ -12,6 +14,8 @@ int main(int argc, char const *argv[])
 
     srand(time(NULL));
     
+
+    //If an unexpected input is given throws an exception and shows the expected input
     if (argc < 2 && argc >3) 
     {
 
@@ -24,6 +28,7 @@ int main(int argc, char const *argv[])
 
     inputString = malloc(sizeof(char) * inputLength);
 
+    //If a key is not given, creates a random key
     if (argc == 2) {
 
         printf("\nNo Key input given... Creating a random key");
@@ -42,7 +47,12 @@ int main(int argc, char const *argv[])
             
         }
 
+        printf("Your new key is generated. Key: %s", keyString);
+
     }
+
+
+    char *outputString = frozHash(inputString, keyString);
     
     
     return 0;
