@@ -11,7 +11,7 @@ char *keyString;
 int main(int argc, char const *argv[])
 {
 
-
+    int exceptionCode;
     srand(time(NULL));
     
 
@@ -34,18 +34,14 @@ int main(int argc, char const *argv[])
         printf("\nNo Key input given... Creating a random key");
 
         //TO DO: Add a real psuedorandom key generator (it uses random() for now)
-        int i = 0;
         int randomLength = random() % inputLength + 1;
 
-        keyString = malloc(sizeof(char) * randomLength);
+        randomKeyGenerator(keyString, randomLength);
 
-        while(i < inputLength){
-            
-            keyString[i] = (random() % 27) + 97;
-
-            i++;
-            
+        if (keyString == NULL) {
+            return;
         }
+              
 
         printf("Your new key is generated. Key: %s", keyString);
 
