@@ -1,31 +1,26 @@
 #include "FrozHashFuncs.h"
+#ifndef _INC_STDLIB
+    #include <stdlib.h>
+#endif
+
 
 // Standard FrozHash that uses basic XOR,
 //string to hash is 'input', and hash key is 'key'
 char *frozHash(char* input, char* key){
-
+    
 }
 
 // Creates a random KeyString and writes it over to 'input'
-void randomKeyGenerator(char* input, int length){
+void randomKeyGenerator(char *input, int length){
 
-    int i = 0;
-    int inputLength = strlen(input);
+    char charset[] = "0123456789"
+                     "abcdefghijklmnopqrstuvwxyz"
+                     "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    input = malloc(sizeof(char) * length);
-
-    if (input == 0) {
-        printf("Could not create a key...");
-        return;
+    while (length-- > 0) {
+        int index = (double) rand() / RAND_MAX * (sizeof charset - 1);
+        *input++ = charset[index];
     }
-    
-
-    while(i < inputLength){
-    
-        input[i] = (random() % 27) + 97;
-
-        i++;
-    
-    }
+    *input = '\0';
     
 }
