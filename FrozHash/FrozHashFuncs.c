@@ -15,8 +15,9 @@ char *frozHash(char* input, char* key){
 }
 
 //Ceasar Cyper that shifts the string by 'shiftValue'
-char *ceasarCyper(char *input, int shiftValue){
+void ceasarCyper(char *input, int shiftValue){
 
+    int i = 0;
 
     //NULL EXCEPTION CHECK
     if (input == NULL) {
@@ -29,6 +30,50 @@ char *ceasarCyper(char *input, int shiftValue){
 
     while(inputLenght-- > 0){
         
+        if ((input[inputLenght] > 64) && (input[inputLenght] < 133)) 
+        {
+            //UPPERCASE
+            i = 0;
+
+            while(i++ < shiftValue)
+            {
+
+                input[inputLenght]++;
+
+                if (input[inputLenght] > 122)
+                {
+                    input[inputLenght] = 65;
+                }
+                
+            }
+            
+            input[inputLenght] += shiftValue;
+
+        } else if ((input[inputLenght] > 140) &&(input[inputLenght] < 173))
+        {
+            //LOWERCASE
+            i = 0;
+            
+            while(i++ < shiftValue)
+            {
+
+                input[inputLenght]++;
+
+                if (input[inputLenght] > 172)
+                {
+                    input[inputLenght] = 141;
+                }
+                
+            }
+
+            input[inputLenght] += shiftValue;
+
+        } else
+        {
+            //NON-ALPHABETIC
+            printf("\nInput contains non alphabetic characters... Terminating Ceaser Cyper");
+            return NULL;
+        }
         
     }
     

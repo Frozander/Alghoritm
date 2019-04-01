@@ -5,6 +5,6 @@
 
 char * frozHash(char* input, char* key);
 void randomKeyGenerator(char* input, int length);
-char *ceasarCyper(char *input, int shiftValue);
+void ceasarCyper(char *input, int shiftValue);
 
 #endif

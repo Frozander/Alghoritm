@@ -16,39 +16,39 @@ int main(int argc, char const *argv[])
     
 
     //If an unexpected input is given throws an exception and shows the expected input
-    if (argc < 2 && argc >3) 
-    {
+    // if (argc < 2 && argc >3) 
+    // {
 
-        printf("\nUsage: ./FrozHash <inputString> <Key | Optional>");
-        return -1;
+    //     printf("\nUsage: ./FrozHash <inputString> <Key | Optional>");
+    //     return -1;
 
-    }
+    // }
 
-    int inputLength = strlen(argv[2]);
+    // int inputLength = strlen(argv[2]);
 
-    inputString = malloc(sizeof(char) * inputLength);
+    // inputString = malloc(sizeof(char) * inputLength);
 
-    //If a key is not given, creates a random key
-    if (argc == 2) {
+    // //If a key is not given, creates a random key
+    // if (argc == 2) {
 
-        printf("\nNo Key input given... Creating a random key");
+    //     printf("\nNo Key input given... Creating a random key");
 
-        //TO DO: Add a real psuedorandom key generator (it uses random() for now)
-        int randomLength = random() % inputLength + 1;
+    //     //TO DO: Add a real psuedorandom key generator (it uses random() for now)
+    //     int randomLength = random() % inputLength + 1;
 
-        randomKeyGenerator(keyString, randomLength);
+    //     randomKeyGenerator(keyString, randomLength);
 
-        if (keyString == NULL) {
-            return;
-        }
+    //     if (keyString == NULL) {
+    //         return;
+    //     }
               
 
-        printf("Your new key is generated. Key: %s", keyString);
+    //     printf("Your new key is generated. Key: %s", keyString);
 
-    }
+    // }
 
 
-    char *outputString = frozHash(inputString, keyString);
+    // char *outputString = frozHash(inputString, keyString);
     
     
     return 0;
