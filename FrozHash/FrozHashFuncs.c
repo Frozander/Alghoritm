@@ -27,10 +27,14 @@ void ceasarCyper(char *input, int shiftValue){
     }
 
     int inputLenght = strlen(input);
+    int add;
+
+    if (shiftValue < 0) add = -1;
+    else add = 1;
 
     while(inputLenght-- > 0){
         
-        if ((input[inputLenght] > 64) && (input[inputLenght] < 133)) 
+        if ((input[inputLenght] > 64) && (input[inputLenght] < 91)) 
         {
             //UPPERCASE
             i = 0;
@@ -38,18 +42,24 @@ void ceasarCyper(char *input, int shiftValue){
             while(i++ < shiftValue)
             {
 
-                input[inputLenght]++;
+                input[inputLenght]+= add;
 
-                if (input[inputLenght] > 122)
+                if (input[inputLenght] > 90)
                 {
                     input[inputLenght] = 65;
                 }
+
+                if (input[inputLenght] < 65) 
+                {
+                    input[inputLenght] = 90;
+                }
+                
                 
             }
             
             input[inputLenght] += shiftValue;
 
-        } else if ((input[inputLenght] > 140) &&(input[inputLenght] < 173))
+        } else if ((input[inputLenght] > 96) &&(input[inputLenght] < 123))
         {
             //LOWERCASE
             i = 0;
@@ -57,12 +67,17 @@ void ceasarCyper(char *input, int shiftValue){
             while(i++ < shiftValue)
             {
 
-                input[inputLenght]++;
+                input[inputLenght]+= add;
 
-                if (input[inputLenght] > 172)
+                if (input[inputLenght] > 122)
                 {
-                    input[inputLenght] = 141;
+                    input[inputLenght] = 97;
                 }
+                if (input[inputLenght] < 97) 
+                {
+                    input[inputLenght] = 122;
+                }
+                
                 
             }
 
