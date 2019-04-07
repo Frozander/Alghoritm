@@ -1,4 +1,4 @@
-#define ARRAYLENGTH 100000
+#define ARRAYLENGTH 10
 
 
 #if ARRAYLENGTH > 2147483647
@@ -36,14 +36,60 @@ void populateArray(int targetArray[],int k)
     while(i < k)
     {
         
-        targetArray[i] = rand();
+        targetArray[i] = rand() % 11;
         i++;
 
     }
 
 }
 
+int isSorted(int targetArray[], int k)
+{
+
+    int i = 0;
+    int sorted = 1;
+
+    while(i < k - 1)
+    {
+        
+        if(targetArray[i] > targetArray[i + 1])
+        {
+            sorted = 0;
+            return sorted;
+        }
+
+        i++;
+
+    }
+
+    return sorted;
+    
+}
+
 void bubbleSort(int targetArray[], int k){
+
+    int sorted = 0;
+
+    while(!isSorted(targetArray, ARRAYLENGTH))
+    {
+
+        for(size_t i = 0; i < k - 1; i++)
+        {
+
+            if (targetArray[i] > targetArray[i + 1])
+            {
+                sorted = 0;
+
+                swap((&targetArray[i]), (&targetArray[i + 1]));
+
+            }
+            
+        }
+
+    }
+        
+        
+    
 
 }
 
@@ -54,6 +100,8 @@ int main(int argc, char const *argv[])
     double elapsedTime;
 
     populateArray(arrayToSort, ARRAYLENGTH);
+
+    printArray(arrayToSort, ARRAYLENGTH);
 
     startClock = clock();
 

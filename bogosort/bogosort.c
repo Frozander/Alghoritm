@@ -48,7 +48,7 @@ int isSorted(int targetArray[])
     int i = 0;
     int sorted = 1;
 
-    while(i++ < ARRAYLENGTH - 1)
+    while(i < ARRAYLENGTH - 1)
     {
         
         if(targetArray[i] > targetArray[i + 1])
@@ -56,6 +56,8 @@ int isSorted(int targetArray[])
             sorted = 0;
             return sorted;
         }
+
+        i++;
 
     }
 
