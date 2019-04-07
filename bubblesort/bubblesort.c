@@ -1,4 +1,4 @@
-#define ARRAYLENGTH 10
+#define ARRAYLENGTH 1000
 
 
 #if ARRAYLENGTH > 2147483647
@@ -36,7 +36,7 @@ void populateArray(int targetArray[],int k)
     while(i < k)
     {
         
-        targetArray[i] = rand() % 11;
+        targetArray[i] = rand() % 1001;
         i++;
 
     }
