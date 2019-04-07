@@ -43,6 +43,10 @@ void populateArray(int targetArray[],int k)
 
 }
 
+void bubbleSort(int targetArray[], int k){
+
+}
+
 int main(int argc, char const *argv[])
 {
     
@@ -54,6 +58,7 @@ int main(int argc, char const *argv[])
     startClock = clock();
 
     // Add Bubble sort
+    bubbleSort(arrayToSort, ARRAYLENGTH);
 
     endClock = clock() - startClock;
     elapsedTime = ((double) endClock ) / CLOCKS_PER_SEC;
