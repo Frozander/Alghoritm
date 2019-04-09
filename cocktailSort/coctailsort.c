@@ -1,67 +1,10 @@
-#define ARRAYLENGTH 1000
-
-
-#if ARRAYLENGTH > 2147483647
-    #define ARRAYLENGTH 2147483647
-    #endif
-
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
+
+#include "./sorting.h"
 
 int arrayToSort[ARRAYLENGTH];
 
-void swap (int *a, int *b) 
-{ 
-    int temp = *a; 
-    *a = *b; 
-    *b = temp; 
-}
-
-void printArray(int targetArray[], int k) 
-{ 
-    int i; 
-    for (i = 0; i < k; i++) 
-        printf("%d->", targetArray[i]); 
-    printf("\n"); 
-}
-
-void populateArray(int targetArray[],int k)
-{   
-
-    srand(time(NULL));
-    int i = 0;
-
-    while(i < k)
-    {
-        
-        targetArray[i] = rand() % 1001;
-        i++;
-
-    }
-
-}
-
-int isSorted(int targetArray[], int k)
-{
-
-    int i = 0;
-    int sorted = 1;
-
-    while(i < k - 1)
-    {
-        
-        if(targetArray[i] > targetArray[i + 1])
-        {
-            sorted = 0;
-            return sorted;
-        }
-
-        i++;
-
-    }
-
-    return sorted;
+void coctailSort(int targetArray[], int k){
     
 }
 
