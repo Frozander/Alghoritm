@@ -51,7 +51,7 @@ int main(int argc, char const *argv[])
     startClock = clock();
 
     // Add CoctailSort
-    
+    coctailSort(arrayToSort, ARRAYLENGTH);
 
     endClock = clock() - startClock;
     elapsedTime = ((double) endClock ) / CLOCKS_PER_SEC;
