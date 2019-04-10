@@ -9,17 +9,20 @@ void coctailSort(int targetArray[], int k){
     int max = 0, min = 0, i = 0, sorted = 0;
 
     while(!isSorted(targetArray, k))
-    {
+    {   
+
+        min = 0;
+        max = 0;
         
-        for(i = 0; i < k - sorted - 1; i++)
+        for(i = 0; i < k - sorted; i++)
         {
 
-            if (targetArray[i] < targetArray[i + 1])
+            if (targetArray[min] < targetArray[i])
             {
                 min = i;   
             }
 
-            if (targetArray[i] > targetArray[i + 1]) 
+            if (targetArray[max] > targetArray[i]) 
             {
                 max = i;
             }
@@ -30,7 +33,7 @@ void coctailSort(int targetArray[], int k){
         swap(&targetArray[max], &targetArray[k - sorted]);
 
 
-        // TO DO: Add reverse loop to add the coctail effect
+        // TO DO: Add reverse loop to add the coctail effect (optional)
         
         sorted++;
 
