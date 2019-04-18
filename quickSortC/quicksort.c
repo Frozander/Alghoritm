@@ -11,11 +11,62 @@
 
 int arrayToSort[ARRAYLENGTH];
 
-void swap(int *n1, int *n2){
+//Swaps the two elements of the array. Gets memory adresses of the values
+void swap (int *a, int *b) 
+{ 
+    int temp = *a; 
+    *a = *b; 
+    *b = temp; 
+}
 
-    int temp = *n1;
-    *n1 = *n2;
-    *n2 = temp;
+//Prints the k number of values of the targetArray
+void printArray(int targetArray[], int k) 
+{ 
+    int i; 
+    for (i = 0; i < k; i++) 
+        printf("%d->", targetArray[i]); 
+    printf("\n"); 
+}
+
+//Populates an array with k number of values
+void populateArray(int targetArray[],int k)
+{   
+
+    srand(time(NULL));
+    int i = 0;
+
+    while(i < k)
+    {
+        
+        targetArray[i] = rand() % 1001;
+        i++;
+
+    }
+
+}
+
+//Checks if an array of size k is sorted
+int isSorted(int targetArray[], int k)
+{
+
+    int i = 0;
+    int sorted = 1;
+
+    while(i < k)
+    {
+        
+        if(targetArray[i] > targetArray[i + 1])
+        {
+            sorted = 0;
+            return sorted;
+        }
+
+        i++;
+
+    }
+
+    return sorted;
+    
 }
 
 int partition(int targetArray[], int low, int high){
@@ -52,31 +103,13 @@ void quickSort(int targetArray[], int low, int high){
     }
 }
 
-void populateArray(int targetArray[], int k){
-
-    srand(time(NULL));
-
-    for(int i = 0; i < k; i++)
-    {
-        targetArray[i] = rand() % 100001;
-    }
-    
-}
-
-void printArray(int targetArray[], int k) { 
-    int i; 
-    for (i = 0; i < k; i++) 
-        printf("%d->", targetArray[i]); 
-    printf("\n"); 
-} 
-
 int main()
 {
 
     clock_t startClock, endClock;
     double elapsedTime;
     
-    populateArray(arrayToSort, ARRAYLENGTH);
+    populateArray(arrayToSort, ARRAYLENGTH - 1);
 
     //printArray(arrayToSort, ARRAYLENGTH);
 
@@ -86,7 +119,7 @@ int main()
 
     startClock = clock();
 
-    quickSort(arrayToSort, 0, ARRAYLENGTH);
+    quickSort(arrayToSort, 0, ARRAYLENGTH - 1);
 
     endClock = clock() - startClock;
 
