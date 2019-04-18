@@ -1,4 +1,4 @@
-#define ARRAYLENGTH 100000
+#define ARRAYLENGTH 1000000
 
 
 #if ARRAYLENGTH > 2147483647
@@ -113,6 +113,7 @@ int main()
 
     //printArray(arrayToSort, ARRAYLENGTH);
 
+    printf("\nArray Lenght = %d", ARRAYLENGTH);
     printf("\nStarting quickSort...\n");
 
 
@@ -132,6 +133,10 @@ int main()
     printf("\nSorted Array: ");
 
     //printArray(arrayToSort, ARRAYLENGTH);
+
+    if(isSorted(arrayToSort, ARRAYLENGTH - 1)){
+        printf("\nArray is sorted\n");
+    }
     
     return 0;
 }
