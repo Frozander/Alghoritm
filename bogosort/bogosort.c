@@ -1,4 +1,4 @@
-#define ARRAYLENGTH 100000
+#define ARRAYLENGTH 5
 
 
 #if ARRAYLENGTH > 2147483647
@@ -20,7 +20,7 @@ void populateArray(int targetArray[],int k)
     while(i < k)
     {
         
-        targetArray[i] = rand();
+        targetArray[i] = rand() % ARRAYLENGTH + 1;
         i++;
 
     }
@@ -90,12 +90,15 @@ int main(int argc, char const *argv[])
     double elapsedTime;
     
     populateArray(arrayToSort, ARRAYLENGTH);
+    printArray(arrayToSort, ARRAYLENGTH);
 
     startClock = clock();
 
     while(!(isSorted(arrayToSort)))
     {
         randomize(arrayToSort, ARRAYLENGTH);
+        printArray(arrayToSort, ARRAYLENGTH);
+        printf("\n");
     }
 
     endClock = clock() - startClock;
