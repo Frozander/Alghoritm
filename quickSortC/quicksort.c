@@ -1,4 +1,4 @@
-#define ARRAYLENGTH 1000000
+#define ARRAYLENGTH 100000
 
 
 #if ARRAYLENGTH > 2147483647
@@ -69,7 +69,8 @@ int isSorted(int targetArray[], int k)
     
 }
 
-int partition(int targetArray[], int low, int high){
+int partition(int targetArray[], int low, int high)
+{
 
     int pivot = targetArray[high];
 
@@ -91,6 +92,38 @@ int partition(int targetArray[], int low, int high){
 
 }
 
+int hoarePartition(int targetArray[], int low, int high)
+{
+
+    int pivot = targetArray[(low + high) / 2];
+    int i = low - 1;
+    int j = high + 1;
+
+    while(1)
+    {
+        
+        do
+        {
+            i++;
+        } while (targetArray[i] < pivot);
+        
+        do
+        {
+            j--;
+        } while (targetArray[j] > pivot);
+
+        if (i >= j)
+        {
+            return j;
+        }
+
+        swap(&targetArray[i], &targetArray[j]);        
+
+    }
+    
+
+}
+
 void quickSort(int targetArray[], int low, int high){
     
     if(low < high){
@@ -102,6 +135,19 @@ void quickSort(int targetArray[], int low, int high){
 
     }
 }
+
+void quickSortHoare(int targetArray[], int low, int high){
+    
+    if(low < high){
+        
+        int partitionIndex = hoarePartition(targetArray, low, high);
+
+        quickSort(targetArray, low, partitionIndex - 1);
+        quickSort(targetArray, partitionIndex + 1, high);
+
+    }
+}
+
 
 int main()
 {
