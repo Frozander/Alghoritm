@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#include "../libs/sorting/sorting.h"
+
 int arrayToSort[ARRAYLENGTH];
 
 //Swaps the two elements of the array. Gets memory adresses of the values
