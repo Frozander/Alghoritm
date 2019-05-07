@@ -1,6 +1,8 @@
 #ifndef _LIB_SORT
 
-#define ARRAYLENGTH 1000000
+#ifndef ARRAYLENGTH
+    #define ARRAYLENGTH 1000000
+    #endif
 
 #if ARRAYLENGTH > 2147483647
     #define ARRAYLENGTH 2147483647
