@@ -16,3 +16,4 @@
 *.sql
 *.sqlite
 /.vscode/*
+/cpp_tutorial/*
